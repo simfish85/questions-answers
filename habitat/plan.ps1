@@ -3,7 +3,19 @@ $pkg_origin="simfish85"
 $pkg_version="0.1.0"
 $pkg_maintainer="Simon Fisher <simfish85@googlemail.com>"
 $pkg_license=@("Apache-2.0")
-$pkg_source="src"
+
+function Invoke-Download {
+    $Destination = "$HAB_CACHE_SRC_PATH/$pkg_name"
+    If((Test-Path $Destination) -eq $true) {
+        Remove-Item -Recurse -Path $Destination
+    }
+    New-Item -ItemType Directory -Path $Destination
+    Copy-Item -Force $PLAN_CONTEXT/../src/* $Destination -recurse
+}
+
+function Invoke-Verify {
+    return 0
+}
 # $pkg_filename="$pkg_name-$pkg_version.zip"
 # $pkg_shasum="TODO"
 # $pkg_deps=@()
