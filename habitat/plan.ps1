@@ -3,7 +3,7 @@ $pkg_origin="simfish85"
 $pkg_version="0.1.0"
 $pkg_maintainer="Simon Fisher <simfish85@googlemail.com>"
 $pkg_license=@("Apache-2.0")
-$pkg_build_deps=@("core/visual-build-tools-2017", "core/nuget")
+$pkg_build_deps=@("core/visual-build-tools-2017")
 
 function Invoke-Download {
     $Destination = "$HAB_CACHE_SRC_PATH/$pkg_name"
